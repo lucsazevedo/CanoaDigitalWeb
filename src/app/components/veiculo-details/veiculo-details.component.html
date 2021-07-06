@@ -1,0 +1,87 @@
+<div>
+    <div *ngIf="currentVeiculo.id" class="edit-form">
+      <h4>Veiculo</h4>
+      <form>
+        <div class="form-group">
+          <label for="veiculo">Veículo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="veiculo"
+            [(ngModel)]="currentVeiculo.veiculo"
+            name="veiculo"
+          />
+        </div>
+        <div class="form-group">
+          <label for="marca">Marca</label>
+          <input
+            type="text"
+            class="form-control"
+            id="marca"
+            [(ngModel)]="currentVeiculo.marca"
+            name="marca"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="ano">Ano</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ano"
+              [(ngModel)]="currentVeiculo.ano"
+              name="ano"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <input
+              type="text"
+              class="form-control"
+              id="descricao"
+              [(ngModel)]="currentVeiculo.descricao"
+              name="descricao"
+            />
+          </div>
+  
+        <div class="form-group">
+          <label><strong>Vendido:</strong></label>
+          {{ currentVeiculo.vendido ? "Sim" : "Não" }}
+        </div>
+      </form>
+  
+      <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentVeiculo.vendido"
+      (click)="updatePublished(false)"
+    >
+      Cancelar Venda
+    </button>
+    <button
+      *ngIf="!currentVeiculo.vendido"
+      class="badge badge-primary mr-2"
+      (click)="updatePublished(true)"
+    >
+      Vender
+    </button>
+
+      <button class="badge badge-danger mr-2" (click)="deleteVeiculo()">
+        Excluir
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateVeiculo()"
+      >
+        Atualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentVeiculo.id">
+      <br />
+      <p>Não foi possivel acessar o veículo...</p>
+    </div>
+  </div>

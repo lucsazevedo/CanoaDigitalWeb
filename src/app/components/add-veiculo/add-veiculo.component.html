@@ -1,0 +1,65 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="veiculo">Veiculo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="veiculo"
+            required
+            [(ngModel)]="veiculo.veiculo"
+            name="veiculo"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="marca">Marca</label>
+          <input
+            class="form-control"
+            id="marca"
+            required
+            [(ngModel)]="veiculo.marca"
+            name="marca"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="ano">Ano</label>
+            <input
+              class="form-control"
+              id="ano"
+              required
+              [(ngModel)]="veiculo.ano"
+              name="ano"
+            />
+          </div>
+
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <input
+              class="form-control"
+              id="descricao"
+              required
+              [(ngModel)]="veiculo.descricao"
+              name="descricao"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="vendido">Vendido</label>
+            <select class="form-control" [(ngModel)]="veiculo.vendido" [value]="veiculo.vendido">
+                <option value='0'>Não</option>
+                <option value="1">Sim</option>
+            </select>
+          </div>
+  
+        <button (click)="saveVeiculo()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Veículo Adicionado com sucesso!</h4>
+        <button class="btn btn-success" (click)="newVeiculo()">Add</button>
+      </div>
+    </div>
+  </div>
